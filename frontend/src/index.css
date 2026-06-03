@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Professional Clean Design Tokens ────────────────────────── */
+:root {
+  --bg-main:        #000000; /* Pure Black */
+  --bg-surface:     #09090b; /* zinc-950 */
+  
+  --primary:        #fafafa; /* zinc-50 */
+  --primary-light:  #d4d4d8; /* zinc-300 */
+  
+  --accent:         #f59e0b; /* amber-500 */
+  --accent-light:   #fbbf24; /* amber-400 */
+  
+  --highlight:      #f59e0b; /* amber-500 */
+  --highlight-bg:   rgba(245, 158, 11, 0.1); /* amber-500 transparent */
+  
+  --border:         #27272a; /* zinc-800 */
+  --border-focus:   #3f3f46; /* zinc-700 */
+  
+  --text-heading:   #ffffff; /* white */
+  --text-body:      #e4e4e7; /* zinc-200 */
+  --text-muted:     #a1a1aa; /* zinc-400 */
+}
+
+@layer base {
+  * { font-family: 'Outfit', sans-serif; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-main);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+}
+
+@layer utilities {
+  /* ── Gradients ── */
+  .gradient-bg {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  /* ── Premium Clean Surfaces ── */
+  .glass-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+  }
+  .glass-card-strong {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+  }
+  .glass-header {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── Refined Text Gradients ── */
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Navigation ── */
+  .nav-link { position: relative; color: var(--text-body); transition: color 0.2s ease; font-weight: 500; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width .3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+  }
+  .nav-link:hover { color: var(--text-heading); }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ── Quiz Options ── */
+  .quiz-option {
+    transition: all .2s ease;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-heading);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  }
+  .quiz-option:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: #18181b; /* zinc-900 */
+    border-color: #3f3f46; /* zinc-700 */
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5);
+  }
+  .quiz-option.correct {
+    border-color: #059669 !important;
+    background: #ecfdf5 !important;
+    color: #065f46;
+  }
+  .quiz-option.wrong {
+    border-color: #dc2626 !important;
+    background: #fef2f2 !important;
+    color: #991b1b;
+  }
+
+  /* ── Constitution Reader Elements ── */
+  .highlight-text { cursor: pointer; transition: all .2s; }
+  .style-highlight {
+    background-color: rgba(251, 191, 36, 0.3);
+    border-radius: 4px;
+    padding: 2px 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .style-bookmark {
+    background-color: rgba(129, 140, 248, 0.2);
+    border-bottom: 2px dashed #818cf8;
+    padding: 2px 4px;
+    border-radius: 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* ── Animations ── */
+  .fade-in { animation: fadeIn .6s ease-out both; }
+  .fade-in-up { animation: fadeInUp .7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .floating { animation: floating 6s ease-in-out infinite; }
+  .slide-up { animation: slideUp .4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* Blob Animations for Hero */
+  .animate-blob { animation: blob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+
+  /* ── Quill Editor (Clean Light) ── */
+  .quill-content { @apply break-words overflow-x-hidden max-w-full; color: var(--text-body); }
+  .quill-content h1 { @apply text-3xl font-bold mb-4 mt-6; color: var(--text-heading); }
+  .quill-content h2 { @apply text-2xl font-bold mb-3 mt-5; color: var(--text-heading); }
+  .quill-content h3 { @apply text-xl font-bold mb-2 mt-4; color: var(--text-heading); }
+  .quill-content p  { @apply mb-4 leading-relaxed tracking-wide text-left; color: var(--text-body); }
+  .quill-content ul { @apply list-disc ml-8 mb-4 space-y-2 text-left; color: var(--text-body); }
+  .quill-content ol { @apply list-decimal ml-8 mb-4 space-y-2 text-left; color: var(--text-body); }
+  .quill-content table { @apply w-full border-collapse my-4 table-fixed; }
+  .quill-content th,
+  .quill-content td { border: 1px solid var(--border); @apply p-3 break-words align-top; word-break: break-word; }
+  .quill-content strong { @apply font-semibold; color: var(--text-heading); }
+  .quill-content em { @apply italic; }
+
+  /* ── Scrollbar ── */
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #52525b; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+/* ── Keyframes ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blob {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(30px, -50px) scale(1.1); }
+  66%  { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+/* ── Quill Editor Overrides ── */
+.ql-toolbar.ql-snow {
+  background: #09090b !important;
+  border-color: var(--border) !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+.ql-container.ql-snow {
+  background: #000000 !important;
+  border-color: var(--border) !important;
+  border-radius: 0 0 12px 12px !important;
+  color: var(--text-body) !important;
+}
+.ql-editor { color: var(--text-body) !important; min-height: 160px; font-family: 'Inter', sans-serif; }
+.ql-toolbar .ql-stroke { stroke: #cbd5e1 !important; }
+.ql-toolbar .ql-fill   { fill:   #cbd5e1 !important; }
+.ql-toolbar button:hover .ql-stroke { stroke: #fbbf24 !important; }
+.ql-toolbar button:hover .ql-fill   { fill:   #fbbf24 !important; }
+
+/* ── Inputs ── */
+input, textarea, select {
+  background: #09090b !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-heading) !important;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+}
+input::placeholder, textarea::placeholder { color: #71717a !important; }
+input:focus, textarea:focus, select:focus {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2) !important;
+  outline: none;
+}
+select option { background: #09090b; color: var(--text-heading); }
