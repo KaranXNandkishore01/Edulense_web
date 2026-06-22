@@ -1,4 +1,6 @@
 import React from 'react';
+import logoDisplay from '../assets/logodisplay.png';
+import postImage from '../assets/post.png';
 
 const About = () => {
     return (
@@ -58,6 +60,10 @@ const About = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="mt-16 flex flex-col md:flex-row gap-8 justify-center items-center">
+                <img src={logoDisplay} alt="EduLense Logo Display" className="rounded-2xl shadow-lg max-w-full md:max-w-md h-auto object-cover" />
+                <img src={postImage} alt="EduLense Post" className="rounded-2xl shadow-lg max-w-full md:max-w-md h-auto object-cover" />
             </div>
         </div>
     );

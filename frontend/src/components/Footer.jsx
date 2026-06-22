@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="border-t border-zinc-900 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-zinc-500 text-xs font-light">© 2024 EduLense. Built for future leaders.</p>
+                    <p className="text-zinc-500 text-xs font-light">© 2026 EduLense. Built for future leaders.</p>
                 </div>
             </div>
         </footer>

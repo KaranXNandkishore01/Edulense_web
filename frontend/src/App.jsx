@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import AuthModals from './components/AuthModals';
 import HighlightsModal from './components/HighlightsModal';
 import AdminPanel from './components/AdminPanel';
+import DigiLawyerBubble from './components/DigiLawyerBubble';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -108,6 +109,8 @@ function App() {
         {showLogin && <AuthModals type="login" onClose={() => setShowLogin(false)} onSwitch={() => { setShowLogin(false); setShowSignup(true); }} onSuccess={handleLogin} />}
         {showSignup && <AuthModals type="signup" onClose={() => setShowSignup(false)} onSwitch={() => { setShowSignup(false); setShowLogin(true); }} onSuccess={handleLogin} />}
         {showHighlights && <HighlightsModal currentUser={currentUser} onClose={() => setShowHighlights(false)} showNotification={showNotification} />}
+
+        <DigiLawyerBubble showNotification={showNotification} />
 
         {/* Toast Notification */}
         {toast.visible && (
