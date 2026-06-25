@@ -25,7 +25,7 @@ Edulense is an AI-powered educational web application designed to enhance learni
 ### Backend
 - **Server:** Node.js with Express.js
 - **Database:** MongoDB & Mongoose
-- **AI & NLP:** OpenAI API, Google GenAI, and `natural` NLP library
+- **AI & NLP:** Google GenAI, and `natural` NLP library
 - **Security:** `bcrypt` for password hashing
 - **File Uploads:** `multer`
 - **Data Parsing:** `csv-parser`
@@ -53,7 +53,6 @@ Create a `.env` file in the `backend` directory and add the following variables:
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/edulense
 # Add your AI API Keys here:
-OPENAI_API_KEY=your_openai_api_key
 GEMINI_API_KEY=your_google_genai_api_key
 # Add other secret keys as required (e.g., JWT_SECRET)
 ```
